@@ -1,4 +1,4 @@
-# Masq
+# www.spencerwalden.net
 
 [Spencer Walden's information security blog](https://www.spencerwalden.net)'s
 source code. It primarily works by using the contents in the [\_posts](/_posts)
