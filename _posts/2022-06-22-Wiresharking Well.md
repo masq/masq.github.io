@@ -13,7 +13,7 @@ to use that I find handy, and I'd like to share those today.
 
 ## Default Configuration
 
-The default starts you out with the following
+The default starts you out with the following columns.
 
 TODO TODO TODO
 
