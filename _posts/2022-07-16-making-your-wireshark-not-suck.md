@@ -1,18 +1,19 @@
 ---
-title: 'How to Make Your Wireshark Not Suck'
-date: '2021-07-03'
-tags:
-	- wireshark
-	- tools
-	- network
-	- packet
-	- analysis
-	- traffic
-	- malware
-	- column
-	- configuration
-	- tool
-
+title: How to Make Your Wireshark Not Suck
+date: 2021-07-03 00:00:00 UTC
+categories: [Network Security]
+tags: [
+	wireshark,
+	tools,
+	network,
+	packet,
+	analysis,
+	traffic,
+	malware,
+	column,
+	configuration,
+	tool
+]
 ---
 
 ## TL;DR:

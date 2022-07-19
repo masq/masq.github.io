@@ -1,6 +1,28 @@
-# Making Something From Nothing
+---
+title: Making Something from Nothing 
+date: 2022-07-18 00:00:00 UTC
+categories: [Explain Like I Am 5]
+tags: [
+	programming,
+	hacking,
+	learning,
+	ground-up,
+	nothing,
+	making,
+	something,
+	from,
+	make,
+	create,
+	how,
+	binary,
+	computer,
+	program,
+	computers
+]
+---
 
-# How do you make something from... nothing?
+## How do you make something from... nothing?
+
 When you want to learn how to program, you will come upon two different types of
 resources. One of those resources will start with the assumption that you know
 how to program already, you're just trying to learn a different programming
@@ -21,9 +43,9 @@ going to be slightly hypocritical here and show you an example.
 
 ```java
 public class Example {
-	public static void main(String[] args) {
-		system.out.println("Hello World!");
-	}
+    public static void main(String[] args) {
+        system.out.println("Hello World!");
+    }
 }
 ```
 _Figure 1: Java code for printing the phrase "Hello World!" to the terminal._
@@ -38,7 +60,8 @@ told me to just memorize "public static void main paren string bracket bracket
 args end paren", for example. This was irksome to me, so I want to straighten
 some of this out and try to really get a "from the ground up" approach to this.
 
-# The computer runs on 0's and 1's
+## The computer runs on 0's and 1's
+
 You always see this in shows, and when you're on the computer... you see
 Facebook, you see the windows desktop, etc. I see no zeros and ones, so what's
 the deal with that?
@@ -48,7 +71,7 @@ really put it in perspective and understand what that statement even really
 means. so, let's back up a little bit just to think of the
 theory of information. Take this string of characters for example:
 
-```
+```text
 ORDLAXSEAIADATLHNLBOS
 ```
 _Figure 2: A long sequence of seemingly-random capital letters._
@@ -56,7 +79,7 @@ _Figure 2: A long sequence of seemingly-random capital letters._
 What do these characters mean? Well, as it stands, not much. However, if we
 break them up in a certain way, it might become more useful.
 
-```
+```text
 ORD LAX SEA IAD ATL HNL BOS
 ```
 _Figure 3: A series of three capital letter sequences. One interpretation of this might be a list of acronyms for airports in the United States._
@@ -67,11 +90,12 @@ groupings as acronyms for airports in the USA. (It's okay if you didn't
 recognize that, I'm just a freak, it's fine).
 
 ## Interpreting information
+
 Great, that's really cool, we can recognize some meaning from a string of what
 seemed like random characters. This is effectively what a computer does with
 0's and 1's. And we can too, if we went with similar (what I'll call) "rules".
 
-```
+```text
 0100100001100101011011000110110001101111001011000010000001110010011001010110000101100100011001010111001000100001
 ```
 _Figure 4: A long string of 0's and 1's._
@@ -91,14 +115,14 @@ permutation of eight 0's and 1's. We call each 0 or 1 "slot", a `bit`. A
 grouping of 8 bits is one `byte`. Let's break up the previous string of bits
 into bytes.
 
-```
+```text
 01001000 01100101 01101100 01101100 01101111 00101100 00100000 01110010 01100101 01100001 01100100 01100101 01110010 00100001
 ```
 _Figure 5: A long string of 0's and 1's broken up at 8 character marks; i.e. byte marks._
 
 And if we interpret these bytes as ASCII...
 
-```
+```text
 H e l l o ,  r e a d e r !
 ```
 _Figure 6: The string "Hello, reader!" in ASCII, with spacing between characters; i.e. byte marks._
@@ -108,8 +132,8 @@ Boom!
 I added spaces just for the visualization, but of course the computer doesn't
 need to break this up with spaces, since it can figure out the bytes by itself.
 
+## Okay... but why 0's and 1's???
 
-# Okay... but why 0's and 1's???
 Long story short, because electricity.
 
 The longer story, it's about voltage, and our ability to confidently measure
@@ -125,8 +149,7 @@ theoretically allow us to store information in 4 states, or base 4. This is
 still experimental... but the gist of it is that it's looking at the quantum
 states of an electron and how it exists in order to encode information.
 
-
-# So how come I so rarely actually see 0's and 1's?
+## So how come I so rarely actually see 0's and 1's?
 
 Typically, we humans can't easily tell what a byte means when displayed as a
 string of 0's and 1's, so often we display it in another format: Hexadecimal.
@@ -137,7 +160,7 @@ up a lot in my work. It is admittedly easier on the eyes to look at as opposed
 to looking at the 0's and 1's representation.
 For our `Hello, reader!` example, in hexadecimal it would look like:
 
-```
+```text
 48 65 6c 6c 6f 2c 20 72 65 61 64 65 72 21
 ```
 _Figure 7: The phrase "Hello, reader!" displayed as hexadecimal._
@@ -148,9 +171,8 @@ that was so we could break something down to be less than 1. Let's take the
 number 127 as an example. Essentially, we had the following in decimal:
 
 | 100's | 10's | 1's |
-|--------------------|
-|  1    |   2  |  7  |
-
+| ----- | ---- | --- |
+| 1     | 2    | 7   |
 _Table 1: The number 127 broken down into base 10 (decimal) columns_
 
 In order to get the number 127. Which means there are 1 groupings of 100, 2
@@ -167,10 +189,9 @@ resets and increments the next column over.
 All of these things are succinctly described with math—like so, from right to
 left. Base 10:
 
-| 10<sup>2</sup> | 10<sup>1</sup> | 10<sup>0</sup> |
-|--------------------------------------------------|
-|     1          |       2        |       7        |
-
+| 10² | 10¹ | 10⁰ |
+| --- | --- | --- |
+|  1  |  2  |  7  |
 _Table 2: The number 127 broken down into base 10 columns by powers of 10_
 
 Basically, for any base, you just make that the big number and put the power
@@ -180,22 +201,38 @@ next to it of the column index from the right to left and those are your
 So, what does 127 look like in bases 2 and 16?
 
 | 128's | 64's | 32's | 16's | 8's | 4's | 2's | 1's |
-|----------------------------------------------------|
-|   0   |  1   |  1   |  1   |  1  |  1  |  1  |  1  |
-
+| ----- | ---- | ---- | ---- | --- | --- | --- | --- |
+| 0     | 1    | 1    | 1    | 1   | 1   | 1   | 1   |
 _Table 3: the number 127 broken down into base 2 (binary) columns_
 
-| 16's | 1's |
-|------------|
-|  7   |  f  |
+Or,
 
-_Table 4: the number 127 broken down into base 16 (hexadecimal) columns_
+| 2⁷ | 2⁶ | 2⁵ | 2⁴ | 2³ | 2² | 2¹ | 2⁰ |
+| -- | -- | -- | -- | -- | -- | -- | -- |
+| 0  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
+_Table 4: the number 127 broken down into base 2 (binary) columns_
+
+Doing the math here... 64 + 32 + 16 + 8 + 4 + 2 + 1 does in fact equal 127.
+
+| 16's | 1's |
+| ---- | --- |
+| 7    | f   |
+_Table 5: the number 127 broken down into base 16 (hexadecimal) columns_
+
+Or,
+
+| 16¹ | 16⁰ |
+| --- | --- |
+|  7  |  f  |
+_Table 5: the number 127 broken down into base 16 (hexadecimal) columns_
+
+Doing the math here... 7*16 + 15 is in fact equivalent to 127.
 
 For hexadecimal, it should be noted that since they run out of digits (0-9 being
 used already) they just leak over into the alphabet and start taking from the
 top. That is, letters A-F are used to denote 10-15 in hexadecimal.
 
-# Still not sure how this makes the computer work?
+## Still not sure how this makes the computer work?
 
 Okay, so we covered how information is represented in different ways using 1's
 and 0's, but we don't really talk about how the code that you write in X
@@ -208,7 +245,7 @@ Central Processing Unit, or CPU. Every CPU that gets made will have a mapping of
 0's and 1's "hard-coded" or "hard-wired" into it that makes it do a thing. So
 just like how we have
 
-```
+```text
 48 65 6c 6c 6f 2c 20 72 65 61 64 65 72 21
 ```
 _Figure 8: The phrase "Hello, reader!" displayed as hexadecimal._
@@ -220,7 +257,7 @@ somewhat analogous to the term "architecture", though.
 Taking the above bytes and interpreting as x86 assembly, a very popular machine
 language results in the following machine code
 
-```asm
+```assembly
 48656C                          INS BYTE PTR GS:[RDI],DX
 6C                              INS BYTE PTR [RDI],DX
 6F                              OUTS DX,DWORD PTR [RSI]
@@ -237,7 +274,7 @@ generally "atomic"; that is, they cannot be broken down into smaller steps. This
 tends to make individual assembly instructions fairly meaningless. Take for
 example, the fourth line of the "disassembly":
 
-```asm
+```assembly
 2C20                            SUB AL,20
 ```
 _Figure 10: The ", " of "Hello, reader!" interpreted as x86 assembly._
@@ -265,7 +302,7 @@ example, since it is considered a "lower level" language.
 
 ```c
 void main() {
-	printf("Hello, world!\n");
+    printf("Hello, world!\n");
 }
 ```
 _Figure 11: C code that will print the phrase "Hello, world!" to the screen in a
@@ -306,13 +343,13 @@ using Linux, it might look a bit different than if this code were compiled for a
 system like Windows or MacOS, but here is the disassembly of the code in the
 executable file after I've compiled it.
 
-```asm
+```assembly
 55                      push   rbp
 48 89 e5                mov    rbp,rsp
 bf c4 05 40 00          mov    edi,0x4005c4
 e8 d5 fe ff ff          call   400410 <puts@plt>
 5d                      pop    rbp
-c3                      ret    
+c3                      ret
 0f 1f 00                nop    DWORD PTR [rax]
 ```
 _Figure 12: Disassembly of our "Hello, World!" C program._
@@ -321,7 +358,7 @@ Cool. What does that all mean? Well, some of this is actually kinda useless to
 the actual "direct" functioning of the program. I'll break it out into the
 different parts of this.
 
-```asm
+```assembly
 ; Function prologue, basically just announcing the fact that we are entering a
 ; function.
 55                      push   rbp
@@ -342,7 +379,7 @@ e8 d5 fe ff ff          call   400410 <puts@plt>
 ; Function epilogue, basically just cleaning up the fact that we were just in a
 ; function
 5d                      pop    rbp
-c3                      ret    
+c3                      ret
 
 ; Totally useless. This is probably just a "compiler optimization". Generally,
 ; it's done in order to get our code to "align", or be at least 4 bytes wide.
